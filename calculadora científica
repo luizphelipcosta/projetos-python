@@ -1,1 +1,26 @@
+import math
 
+def calculadora_cientifica():
+    print("--- CALCULADORA CIENTÍFICA ---")
+    print("1. Soma | 2. Subtração | 3. Multiplicação | 4. Divisão")
+    print("5. Potência (x^y) | 6. Raiz Quadrada | 7. Seno | 8. Cosseno")
+
+    opcao = int(input("Escolha a operação: "))
+
+    if opcao in [1, 2, 3, 4, 5]:
+        n1 = float(input("Primeiro número: "))
+        n2 = float(input("Segundo número: "))
+        if opcao == 1: print(f"Resultado: {n1 + n2}")
+        elif opcao == 2: print(f"Resultado: {n1 - n2}")
+        elif opcao == 3: print(f"Resultado: {n1 * n2}")
+        elif opcao == 4: print(f"Resultado: {n1 / n2}" if n2 != 0 else "Erro: Divisão por zero")
+        elif opcao == 5: print(f"Resultado: {math.pow(n1, n2)}")
+    elif opcao in [6, 7, 8]:
+        n = float(input("Digite o número: "))
+        if opcao == 6: print(f"Resultado: {math.sqrt(n)}" if n >= 0 else "Erro: Raiz de número negativo")
+        elif opcao == 7: print(f"Resultado: {math.sin(math.radians(n)):.4f}")
+        elif opcao == 8: print(f"Resultado: {math.cos(math.radians(n)):.4f}")
+    else:
+        print("Opção inválida.")
+
+calculadora_cientifica()
