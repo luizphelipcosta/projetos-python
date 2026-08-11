@@ -1,0 +1,24 @@
+class GerenciadorEscolar:
+    def __init__(self):
+        self.turma = {} # {Matricula: {"Nome": X, "Curso": Y}}
+
+    def executar(self):
+        while True:
+            print("\n--- SISTEMA DE GESTÃO ESCOLAR ---")
+            op = input("1. Matricular Aluno | 2. Consultar Turma | 3. Desligar Sistema: ")
+            if op == "1":
+                mat = input("Número de Matrícula: ")
+                nome = input("Nome do Aluno: ")
+                curso = input("Curso Acadêmico: ")
+                self.turma[mat] = {"Nome": nome, "Curso": curso}
+                print(f"Aluno {nome} matriculado com sucesso!")
+            elif op == "2":
+                print("\nLista de Alunos Matriculados:")
+                for mat, dados in self.turma.items():
+                    print(f"Matrícula: {mat} | Nome: {dados['Nome']} | Curso: {dados['Curso']}")
+            elif op == "3":
+                print("Encerrando Secretaria Virtual.")
+                break
+
+escola = GerenciadorEscolar()
+escola.executar()
