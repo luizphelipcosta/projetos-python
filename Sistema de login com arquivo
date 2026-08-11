@@ -1,0 +1,25 @@
+def sistema_login_arquivo():
+    print("1. Registrar Novo Usuário | 2. Fazer Login")
+    op = input("Escolha: ")
+
+    user = input("Usuário: ").strip()
+    senha = input("Senha: ").strip()
+
+    if op == "1":
+        with open("credenciais.txt", "a") as f:
+            f.write(f"{user},{senha}\n")
+        print("Usuário registrado com sucesso!")
+    elif op == "2":
+        autenticado = False
+        try:
+            with open("credenciais.txt", "r") as f:
+                for linha in f:
+                    u, s = linha.strip().split(",")
+                    if u == user and s == senha:
+                        autenticado = True
+                        break
+        except FileNotFoundError: pass
+
+        print("Acesso Permitido!" if autenticado else "Acesso Negado.")
+
+sistema_login_arquivo()
