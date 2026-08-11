@@ -1,0 +1,20 @@
+class SistemaBancario:
+    def __init__(self):
+        self.saldo = 0.0
+
+    def operar(self):
+        while True:
+            print(f"\nSaldo Atual: R$ {self.saldo:.2f}")
+            print("1. Depositar | 2. Sacar | 3. Sair")
+            op = input("Escolha: ")
+            if op == "1":
+                v = float(input("Valor do depósito: "))
+                self.saldo += max(0, v)
+            elif op == "2":
+                v = float(input("Valor do saque: "))
+                if v <= self.saldo: self.saldo -= v
+                else: print("Saldo insuficiente.")
+            elif op == "3":
+                break
+
+banco = SistemaBancario()
