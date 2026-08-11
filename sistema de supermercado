@@ -1,0 +1,16 @@
+tabela_precos = {"Arroz": 25.0, "Feijão": 8.5, "Leite": 4.5}
+
+def caixa_supermercado():
+    total = 0.0
+    print("--- CAIXA LIGADO ---")
+    while True:
+        item = input("Produto (ou 'fim' para fechar): ").strip().capitalize()
+        if item == "Fim": break
+        if item in tabela_precos:
+            qtd = int(input(f"Quantidade de {item}: "))
+            total += tabela_precos[item] * qtd
+        else:
+            print("Item não cadastrado.")
+    print(f"Total da compra: R$ {total:.2f}")
+
+caixa_supermercado() 
