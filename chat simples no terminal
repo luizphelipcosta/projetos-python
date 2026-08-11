@@ -1,0 +1,18 @@
+def chat_terminal():
+    print("--- CHAT INICIADO (Digite 'sair' para encerrar) ---")
+    usuario1 = input("Nome do Usuário 1: ")
+    usuario2 = input("Nome do Usuário 2: ")
+
+    vez_do_usuario1 = True
+    while True:
+        if vez_do_usuario1:
+            msg = input(f"[{usuario1}]: ")
+            if msg.lower() == 'sair': break
+            vez_do_usuario1 = False
+        else:
+            msg = input(f"[{usuario2}]: ")
+            if msg.lower() == 'sair': break
+            vez_do_usuario1 = True
+
+# chat_terminal() 
+# execução finalizada
