@@ -1,0 +1,18 @@
+def conversor_universal():
+    # Base fictícia: 1 USD equivale a:
+    taxas = {"BRL": 5.20, "EUR": 0.92, "USD": 1.0}
+
+    print("Moedas disponíveis: BRL, EUR, USD")
+    de = input("Converter DE: ").upper().strip()
+    para = input("Converter PARA: ").upper().strip()
+    valor = float(input("Valor a ser convertido: "))
+
+    if de in taxas and para in taxas:
+        # Converte para dólar base e depois para a moeda final
+        valor_em_usd = valor / taxas[de]
+        valor_final = valor_em_usd * taxas[para]
+        print(f"Resultado: {valor_final:.2f} {para}")
+    else:
+        print("Moedas inválidas.")
+
+conversor_universal()
